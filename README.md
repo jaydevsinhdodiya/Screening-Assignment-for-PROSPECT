@@ -1,4 +1,12 @@
 # Screening-Assignment-for-PROSPECT
+Modelling:
+
+First, I did not have a laptop so I did this work from my mobile. 
+For modelling of given scanned priscription images I used termux & EasyOCR module to do modelling.
+
+
+
+
 
 Evaluation Strategy:
 
