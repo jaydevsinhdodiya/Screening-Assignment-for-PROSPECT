@@ -1,4 +1,5 @@
 # Screening-Assignment-for-PROSPECT
+
 Evaluation Strategy:
 
 1. Manual Verification:
@@ -19,3 +20,10 @@ Poor handwriting OCR misreadings Missing fields due to image qualityBased on the
 
 Variations in handwriting styles and low-resolution images significantly impacted extraction accuracy.
 Some structured fields like "instructions" were harder to capture due to their free-text nature.
+
+My Extraction Pipeline
+
+I built a pipeline that uses OCR (Optical Character Recognition) to extract raw text from scanned prescription images.
+Then, I applied text cleaning techniques to remove noise and irrelevant characters.
+Next, I structured the extracted text into important fields: Patient Name, Doctor Name, Date, Medicines, and Instructions.
+Finally, I exported the structured data into a CSV file for easy analysis and further processing.
