@@ -27,3 +27,15 @@ I built a pipeline that uses OCR (Optical Character Recognition) to extract raw 
 Then, I applied text cleaning techniques to remove noise and irrelevant characters.
 Next, I structured the extracted text into important fields: Patient Name, Doctor Name, Date, Medicines, and Instructions.
 Finally, I exported the structured data into a CSV file for easy analysis and further processing.
+
+
+/prescription_extraction_project
+    ├── images/                # All prescription images
+    ├── extracted_texts/        # Text files from OCR
+    ├── cleaned_texts/          # Cleaned text files
+    ├── scripts/
+    │    ├── ocr_extraction.py  # OCR extraction script
+    │    ├── text_cleaning.py   # Text cleaning script
+    │    ├── structured_data.py # Extraction of structured fields
+    ├── output.csv              # Final structured data
+    ├── README.md               # Project Summary (with above 3 sections)
