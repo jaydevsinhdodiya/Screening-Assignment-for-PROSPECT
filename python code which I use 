@@ -1,1 +1,122 @@
-hsh
+1. Convert 129 JPG Files to 129 TXT Files
+
+# Convert 129 JPG files to 129 TXT files
+
+import easyocr
+import os
+
+# Set up the OCR reader from EasyOCR
+reader = easyocr.Reader(['en'])
+
+# Folder where all the prescription images are stored
+input_folder = "/storage/pictures/prescription"
+# Folder to save the text files after extraction
+output_folder = "/storage/pictures/output_txt"
+
+# Create output folder if it doesn't exist
+if not os.path.exists(output_folder):
+    os.makedirs(output_folder)
+
+# Get all the .jpg image files from the folder
+image_files = [f for f in os.listdir(input_folder) if f.endswith('.jpg')]
+
+# Loop through each image and process it
+for image_file in image_files:
+    image_path = os.path.join(input_folder, image_file)
+    
+    # Use EasyOCR to extract text from the image
+    result = reader.readtext(image_path)
+
+    # Join all text extracted and save it into a .txt file
+    text = "\n".join([item[1] for item in result])
+    output_file = os.path.join(output_folder, image_file.replace(".jpg", ".txt"))
+    
+    # Write the extracted text into the output .txt file
+    with open(output_file, 'w') as file:
+        file.write(text)
+
+    print(f"Processed and saved: {image_file}")
+
+
+
+2. Cleaning and Organizing the 129 TXT Files
+
+# Clean and organize the 129 TXT files
+
+import os
+
+# Path where the raw .txt files are saved
+txt_folder = "/storage/pictures/output_txt"
+# Folder to store the cleaned text files
+output_folder = "/storage/pictures/cleaned_txt"
+
+# Make sure the cleaned folder exists
+if not os.path.exists(output_folder):
+    os.makedirs(output_folder)
+
+# List all .txt files in the folder
+txt_files = [f for f in os.listdir(txt_folder) if f.endswith('.txt')]
+
+# Loop through the files and clean them up
+for txt_file in txt_files:
+    file_path = os.path.join(txt_folder, txt_file)
+    
+    # Open the text file and read its content
+    with open(file_path, 'r') as file:
+        text = file.read()
+
+    # Clean up the text: remove extra spaces and unwanted characters
+    cleaned_text = ' '.join(text.split())  # Removes excess whitespace between words
+
+    # Add custom logic for further cleaning or organizing, if necessary
+    # For now, I just remove unnecessary spaces between text
+
+    # Save the cleaned text to the new output folder
+    cleaned_file_path = os.path.join(output_folder, txt_file)
+    with open(cleaned_file_path, 'w') as cleaned_file:
+        cleaned_file.write(cleaned_text)
+
+    print(f"Cleaned and saved: {txt_file}")
+
+
+
+3. Convert 129 TXT Files into 1 CSV File
+
+
+# Convert 129 TXT files into 1 CSV file
+
+import os
+import pandas as pd
+
+# Path where the cleaned .txt files are stored
+txt_folder = "/storage/pictures/cleaned_txt"
+# Path where the final CSV will be saved
+output_csv = "/storage/pictures/final_output.csv"
+
+# List all cleaned .txt files
+txt_files = [f for f in os.listdir(txt_folder) if f.endswith('.txt')]
+
+# Initialize an empty list to store all the structured data
+structured_data = []
+
+# Loop through each cleaned .txt file and extract the data
+for txt_file in txt_files:
+    file_path = os.path.join(txt_folder, txt_file)
+    
+    # Open the .txt file and read the cleaned text
+    with open(file_path, 'r') as file:
+        text = file.read()
+
+    # Clean the text further if necessary, for now just space cleaning
+    cleaned_text = ' '.join(text.split())  # Removes extra spaces
+
+    # Store the file name and its cleaned text as one record
+    structured_data.append([txt_file, cleaned_text])
+
+# Convert the list of structured data into a pandas DataFrame
+df = pd.DataFrame(structured_data, columns=["File Name", "Cleaned Text"])
+
+# Save the DataFrame as a .csv file
+df.to_csv(output_csv, index=False)
+
+print(f"All files converted into CSV: {output_csv}")
