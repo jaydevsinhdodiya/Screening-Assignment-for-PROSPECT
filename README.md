@@ -1,5 +1,4 @@
 # Screening-Assignment-for-PROSPECT
-Modelling:
 
 Project Overview:
 
