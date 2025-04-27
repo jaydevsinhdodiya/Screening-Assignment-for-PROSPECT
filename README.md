@@ -39,47 +39,18 @@ python convert_txt_to_csv.py
 
 This script processes all .txt files in the folder and converts them into .csv file.
 
+The outcome of this project is a single consolidated .csv file, which contains the structured data extracted from all 129 .txt files. This CSV file provides a well-organized and tabular format, making it easier to analyze and manipulate the data for further use. The final .csv file has been attached to this repository for easy access and review.
+
+
+Limitation:
+
+I used my mobile device for this modeling project, which was not as efficient as working on a laptop. Due to the lack of necessary equipment, I was unable to use multimodal LLMs, which are more accurate for this type of task. Despite these limitations, I did my best with the available resources.
+
+Another challenge was that the scanned images were not always very clear, and the handwriting was not consistently legible. As a result, the OCR model did not always produce accurate text. Additionally, the images varied in terms of section categories, further complicating the process. Some images had unclear or distorted text, making it difficult for the OCR model to recognize certain characters, which impacted the quality of the extracted data.
+
+Furthermore, the inconsistency in formatting and layout across the 129 images posed another obstacle. Not all prescriptions followed the same structure, so organizing the extracted text into a coherent and structured format was challenging. Some sections, such as patient information, medication names, or doctor details, were often mixed or misinterpreted.
+
+While these challenges affected the accuracy of the final results, the outcome is still useful. Despite these limitations, the data extracted provides valuable insights and can be further refined with manual corrections or improved OCR models in the future.
 
 
 
-
-
-Evaluation Strategy:
-
-1. Manual Verification:
-
-I manually reviewed the structured data extracted from the prescriptions.
-I compared the predicted values (Patient Name, Doctor Name, Date, Medicines, Instructions) with the true information visible in the prescription images.
-
-2. Overall Pipeline Performance:
-
-Overall accuracy was measured by checking how many complete prescriptions (all fields correct) were successfully extracted.
-
-3. Error Analysis:
-
-I analyzed incorrectly extracted examples to understand the common sources of errors, such as:
-Poor handwriting OCR misreadings Missing fields due to image qualityBased on the analysis, suggestions for improvements were identified (e.g., image pre-processing, better OCR models).
-
-4. Limitations Noted:
-
-Variations in handwriting styles and low-resolution images significantly impacted extraction accuracy.
-Some structured fields like "instructions" were harder to capture due to their free-text nature.
-
-My Extraction Pipeline & Multimodal Model Usage: 
-
-I built a pipeline that uses OCR (Optical Character Recognition) to extract raw text from scanned prescription images.
-Then, I applied text cleaning techniques to remove noise and irrelevant characters.
-Next, I structured the extracted text into important fields: Patient Name, Doctor Name, Date, Medicines, and Instructions.
-Finally, I exported the structured data into a CSV file for easy analysis and further processing.
-
-
-/prescription_extraction_project
-    ├── images/                # All prescription images
-    ├── extracted_texts/        # Text files from OCR
-    ├── cleaned_texts/          # Cleaned text files
-    ├── scripts/
-    │    ├── ocr_extraction.py  # OCR extraction script
-    │    ├── text_cleaning.py   # Text cleaning script
-    │    ├── structured_data.py # Extraction of structured fields
-    ├── output.csv              # Final structured data
-    ├── README.md               # Project Summary (with above 3 sections)
