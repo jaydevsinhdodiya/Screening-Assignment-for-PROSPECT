@@ -26,7 +26,7 @@ Now, all .jpg file are converted into .txt files but all the text appears is mix
 
 After that we convert all .txt files to .csv file. The purpose of converting a TXT file to CSV is to structure the data into a more organized and tabular format that is easier to analyze, manipulate, and use in various applications.
 
-now again we use command "nano convert_txt_to_csv.py" to save python script for converting.txt to .csv 
+now again we use command "nano convert_txt_to_csv.py" to save python script for converting.txt to .csv. after writing code into script run it by command "python convert_txt_to_csv.py" and the result is here with the github 
 
 
 
