@@ -1,8 +1,33 @@
 # Screening-Assignment-for-PROSPECT
 Modelling:
 
-First, I did not have a laptop so I did this work from my mobile. 
-For modelling of given scanned priscription images I used termux & EasyOCR module to do modelling.
+Thank you for the opportunity.
+To model the provided scanned handwritten prescription images, I used the Termux application along with the EasyOCR module.
+
+To start, I first unzipped the 129 prescription images and organized them into a single folder at Storage/Pictures/Prescription. Then, using Python, I began converting all the .jpg files into .txt files.
+
+For convert .jpg images to .txt format we need some libraries for smooth running so for python "pip" is package Installer by using this we download some libraries with below code,
+
+1.pip install easyocr
+2.pip install torch torchvision torchaudio
+3.pip install opencv-python-headless
+
+These are the libraries required for our modeling. Now, we will create a Python file for the script. To save the file, we use nano, which is a simple text editor in the terminal. When you run the command "nano convert.py" in Termux, it opens the text editor, allowing you to paste and edit your Python code directly.
+
+4.nano convert.py
+
+A blank page will open. In this blank space, we write your Python code to convert .jpg files into .txt files. 
+
+After writing the code,we save the script and run it using the command: python convert.py.
+
+Then, the script will open each .jpg image inside /storage/pictures/prescription/ & It will create .txt files with the recognized text.
+
+Now, all .jpg file are converted into .txt files but all the text appears is mixed, so now we clean up the extracted text to make it more structured by removing extra space, unwanted charecters & organise the text into sections like Patient name, Doctor name, date, medicine etc.
+
+After that we convert all .txt files to .csv file. The purpose of converting a TXT file to CSV is to structure the data into a more organized and tabular format that is easier to analyze, manipulate, and use in various applications.
+
+now again we use command "nano convert_txt_to_csv.py" to save python script for converting.txt to .csv 
+
 
 
 
