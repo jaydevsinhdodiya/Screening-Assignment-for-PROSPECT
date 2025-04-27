@@ -1,32 +1,43 @@
 # Screening-Assignment-for-PROSPECT
 Modelling:
 
-Thank you for the opportunity.
-To model the provided scanned handwritten prescription images, I used the Termux application along with the EasyOCR module.
+Project Overview:
 
-To start, I first unzipped the 129 prescription images and organized them into a single folder at Storage/Pictures/Prescription. Then, using Python, I began converting all the .jpg files into .txt files.
+In this project, I modeled the conversion of scanned handwritten prescription images into structured data using the Termux application along with the EasyOCR module. The objective was to process prescription images (.jpg format) and extract meaningful information such as patient details, prescription items, and doctor's information into a structured format for analysis.
 
-For convert .jpg images to .txt format we need some libraries for smooth running so for python "pip" is package Installer by using this we download some libraries with below code,
+Steps Involved:
 
-1.pip install easyocr
-2.pip install torch torchvision torchaudio
-3.pip install opencv-python-headless
+1. Organizing Prescription Images: I started by unzipping the 129 scanned prescription images and organized them into a single folder located at Storage/Pictures/Prescription.
 
-These are the libraries required for our modeling. Now, we will create a Python file for the script. To save the file, we use nano, which is a simple text editor in the terminal. When you run the command "nano convert.py" in Termux, it opens the text editor, allowing you to paste and edit your Python code directly.
 
-4.nano convert.py
+2. Installing Required Libraries: To facilitate the conversion of images to text, several Python libraries are required. These libraries were installed using pip (Python’s package installer) with the following commands:
 
-A blank page will open. In this blank space, we write your Python code to convert .jpg files into .txt files. 
+pip install easyocr
+pip install torch torchvision torchaudio
+pip install opencv-python-headless
 
-After writing the code,we save the script and run it using the command: python convert.py.
 
-Then, the script will open each .jpg image inside /storage/pictures/prescription/ & It will create .txt files with the recognized text.
+3. Creating the Python Script for Image to Text Conversion: A Python script was created to process the .jpg files and convert them into .txt files. The script uses EasyOCR to extract text from each image. To save the Python script, I used the nano text editor in Termux, which can be accessed with the following command:
 
-Now, all .jpg file are converted into .txt files but all the text appears is mixed, so now we clean up the extracted text to make it more structured by removing extra space, unwanted charecters & organise the text into sections like Patient name, Doctor name, date, medicine etc.
+nano convert.py
 
-After that we convert all .txt files to .csv file. The purpose of converting a TXT file to CSV is to structure the data into a more organized and tabular format that is easier to analyze, manipulate, and use in various applications.
+In the script, I used EasyOCR to read each image from the folder Storage/Pictures/Prescription/ and saved the recognized text in .txt files.
 
-now again we use command "nano convert_txt_to_csv.py" to save python script for converting.txt to .csv. after writing code into script run it by command "python convert_txt_to_csv.py" and the result is here with the github 
+
+4. Data Cleaning and Structuring: After the text was extracted from the images, I cleaned up the data by removing extra spaces, unwanted characters, and organized the text into sections (e.g., Patient Name, Doctor’s Name, Date, Medicine, etc.) for better readability and analysis.
+
+
+5. Converting .txt Files to .csv Format: The next step was to convert the cleaned .txt files into a .csv format. This conversion was necessary to organize the data into a structured, tabular format, making it easier to analyze, manipulate, and use in various applications.
+
+For this task, I created another Python script and saved it using the following command:
+
+nano convert_txt_to_csv.py
+
+After writing and saving the script, I ran it using:
+
+python convert_txt_to_csv.py
+
+This script processes all .txt files in the folder and converts them into .csv file.
 
 
 
